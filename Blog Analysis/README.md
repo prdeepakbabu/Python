@@ -1,9 +1,10 @@
 Using Python for Blog Analysis
 ==============================
 
-Source code for weblog collection & analysis using statcounter
+Source code for weblog collection & analysis using statcounter.com
 
 - Use browser automation tools like iMacros(for firefox) to automate downloading the log file and schedule the script to run every week(required frequency). This helps to trick around the 500 row limit for free account.
+ Use cron for scheduling : 0 11 * * 2 export DISPLAY=:0 && /usr/bin/firefox imacros://run/?m=Statc.iim
 
 - combine.py is a python script which aggregates data from multiple weblog files created through statcounter. It also creates a "user" field which identifies based on OS & IP Addr. Finally exports the combined file as a csv.
 
