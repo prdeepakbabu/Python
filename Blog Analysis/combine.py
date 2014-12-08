@@ -3,10 +3,13 @@ import pandas as pd
 import os
 import datetime as dt
 
+#set the folder config (where all the log files are stored)
+fldr='/home/deepak/iMacros/Downloads/Process'
+
 inp=pd.DataFrame()
 #loop through all log files
-for fl in os.listdir('/home/deepak/iMacros/Downloads/Process'):
-    temp=pd.read_csv("/home/deepak/iMacros/Downloads/Process/"+fl,sep=",",engine='python')       #read file
+for fl in os.listdir(fldr):
+    temp=pd.read_csv(fldr+"/"+fl,sep=",",engine='python')       #read file
     inp=inp.append(temp)    
     
 #remove duplicates
@@ -17,7 +20,9 @@ out['Date and Time']=[dt.datetime.strptime(t,'%Y-%m-%d %H:%M:%S') for t in out['
 out['user']=out['IP Address']+out['OS'] #create a USER defn.
 output=out[['Date and Time','user','Browser','OS','Country','Region','City','URL','Returning Count']]
 output=output.sort(['Date and Time'],ascending=False)
-output.to_csv('/home/deepak/iMacros/Downloads/Process/combined.csv',index=True)
+output.to_csv(fldr+"/combined.csv",index=True)
+
+
 
 
 
