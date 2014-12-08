@@ -1,5 +1,5 @@
-Using Python for Blog Analysis
-==============================
+Python Pandas for weblog processing
+==================================
 
 Source code for weblog collection & analysis using statcounter.com
 
